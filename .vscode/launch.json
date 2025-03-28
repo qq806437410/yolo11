@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug C++", // 调试配置的名称
+            "type": "cppdbg", // 调试类型为 C++ 调试
+            "request": "launch", // 启动调试会话
+            "program": "/home/aukun/Project-AI/yolo11/build/yolo11", // 可执行文件路径
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb", // GDB 调试器路径
+            "setupCommands": [
+                {
+                    "description": "启用调试输出",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "build", // 在调试之前执行的构建任务
+            "miDebuggerArgs": "",
+            "logging": {
+                "moduleLoad": false,
+                "trace": true,
+                "engineLogging": false
+            }
+        }
+    ]
+}

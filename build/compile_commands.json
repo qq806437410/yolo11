@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/main.cc.o -c /home/aukun/Project-AI/yolo11/main.cc",
+  "file": "/home/aukun/Project-AI/yolo11/main.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/src/BYTETracker/BYTETracker.cc.o -c /home/aukun/Project-AI/yolo11/src/BYTETracker/BYTETracker.cc",
+  "file": "/home/aukun/Project-AI/yolo11/src/BYTETracker/BYTETracker.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/src/BYTETracker/STrack.cc.o -c /home/aukun/Project-AI/yolo11/src/BYTETracker/STrack.cc",
+  "file": "/home/aukun/Project-AI/yolo11/src/BYTETracker/STrack.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/src/BYTETracker/kalmanFilter.cc.o -c /home/aukun/Project-AI/yolo11/src/BYTETracker/kalmanFilter.cc",
+  "file": "/home/aukun/Project-AI/yolo11/src/BYTETracker/kalmanFilter.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/src/BYTETracker/lapjv.cc.o -c /home/aukun/Project-AI/yolo11/src/BYTETracker/lapjv.cc",
+  "file": "/home/aukun/Project-AI/yolo11/src/BYTETracker/lapjv.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.o -c /home/aukun/Project-AI/yolo11/src/BYTETracker/utils.cc",
+  "file": "/home/aukun/Project-AI/yolo11/src/BYTETracker/utils.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o -c /home/aukun/Project-AI/yolo11/src/yolo11/postprocess.cc",
+  "file": "/home/aukun/Project-AI/yolo11/src/yolo11/postprocess.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++  -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -std=gnu++11 -o CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o -c /home/aukun/Project-AI/yolo11/src/yolo11/yolo11_zero_copy.cc",
+  "file": "/home/aukun/Project-AI/yolo11/src/yolo11/yolo11_zero_copy.cc"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build/utils.out",
+  "command": "/usr/bin/aarch64-linux-gnu-gcc -DDISABLE_LIBJPEG -DLIBRGA_IM2D_HANDLE -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -o CMakeFiles/fileutils.dir/file_utils.c.o -c /home/aukun/Project-AI/yolo11/utils/file_utils.c",
+  "file": "/home/aukun/Project-AI/yolo11/utils/file_utils.c"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build/utils.out",
+  "command": "/usr/bin/aarch64-linux-gnu-gcc -DDISABLE_LIBJPEG -DLIBRGA_IM2D_HANDLE -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -o CMakeFiles/imagedrawing.dir/image_drawing.c.o -c /home/aukun/Project-AI/yolo11/utils/image_drawing.c",
+  "file": "/home/aukun/Project-AI/yolo11/utils/image_drawing.c"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build/utils.out",
+  "command": "/usr/bin/aarch64-linux-gnu-gcc -DDISABLE_LIBJPEG -DLIBRGA_IM2D_HANDLE -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -o CMakeFiles/imageutils.dir/image_utils.c.o -c /home/aukun/Project-AI/yolo11/utils/image_utils.c",
+  "file": "/home/aukun/Project-AI/yolo11/utils/image_utils.c"
+},
+{
+  "directory": "/home/aukun/Project-AI/yolo11/build/utils.out",
+  "command": "/usr/bin/aarch64-linux-gnu-gcc -DDISABLE_LIBJPEG -DLIBRGA_IM2D_HANDLE -I/home/aukun/Project-AI/yolo11/include -I/home/aukun/Project-AI/yolo11/include/BYTETracker -I/home/aukun/Project-AI/yolo11/include/eigen3 -I/home/aukun/Project-AI/yolo11/include/opencv4 -I/home/aukun/Project-AI/yolo11/include/rga -I/home/aukun/Project-AI/yolo11/include/rknpu -I/home/aukun/Project-AI/yolo11/include/timer -I/home/aukun/Project-AI/yolo11/include/yolo11 -I/home/aukun/Project-AI/yolo11/utils -g -fno-omit-frame-pointer -fsanitize=address -o CMakeFiles/audioutils.dir/audio_utils.c.o -c /home/aukun/Project-AI/yolo11/utils/audio_utils.c",
+  "file": "/home/aukun/Project-AI/yolo11/utils/audio_utils.c"
+}
+]

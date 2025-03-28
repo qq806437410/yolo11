@@ -1,0 +1,9 @@
+{
+    "cmake.sourceDirectory": "/home/aukun/Project-AI/yolo11",
+    "files.associations": {
+        "*.lua.txt": "lua",
+        "array": "cpp",
+        "string_view": "cpp",
+        "turbojpeg.h": "c"
+    }
+}

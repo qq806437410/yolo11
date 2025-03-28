@@ -1,0 +1,129 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "utils.out",
+					"jsonFile" : "directory-utils.out-Debug-7ee4589b28d3ef4a0ff2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "utils",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "yolo11_project",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "rknn_model_zoo_utils",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "audioutils::@d3ad88163ad4775a7946",
+					"jsonFile" : "target-audioutils-Debug-e2d9559523c2bcbe8b88.json",
+					"name" : "audioutils",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "fileutils::@d3ad88163ad4775a7946",
+					"jsonFile" : "target-fileutils-Debug-8c6326ae6d7413143a3e.json",
+					"name" : "fileutils",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "imagedrawing::@d3ad88163ad4775a7946",
+					"jsonFile" : "target-imagedrawing-Debug-05a1e5bf0a93898e6c19.json",
+					"name" : "imagedrawing",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "imageutils::@d3ad88163ad4775a7946",
+					"jsonFile" : "target-imageutils-Debug-ca7bfc2fb038003a3790.json",
+					"name" : "imageutils",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "yolo11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-yolo11-Debug-75c43692e48c07aa900f.json",
+					"name" : "yolo11",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/aukun/Project-AI/yolo11/build",
+		"source" : "/home/aukun/Project-AI/yolo11"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
