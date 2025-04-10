@@ -14,6 +14,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/aukun/Project-AI/yolo11/src/BYTETracker/kalmanFilter.cc" "CMakeFiles/yolo11.dir/src/BYTETracker/kalmanFilter.cc.o" "gcc" "CMakeFiles/yolo11.dir/src/BYTETracker/kalmanFilter.cc.o.d"
   "/home/aukun/Project-AI/yolo11/src/BYTETracker/lapjv.cc" "CMakeFiles/yolo11.dir/src/BYTETracker/lapjv.cc.o" "gcc" "CMakeFiles/yolo11.dir/src/BYTETracker/lapjv.cc.o.d"
   "/home/aukun/Project-AI/yolo11/src/BYTETracker/utils.cc" "CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.o" "gcc" "CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.o.d"
+  "/home/aukun/Project-AI/yolo11/src/http/http_client.cc" "CMakeFiles/yolo11.dir/src/http/http_client.cc.o" "gcc" "CMakeFiles/yolo11.dir/src/http/http_client.cc.o.d"
+  "/home/aukun/Project-AI/yolo11/src/resnet/resnet.cc" "CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o" "gcc" "CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o.d"
   "/home/aukun/Project-AI/yolo11/src/yolo11/postprocess.cc" "CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o" "gcc" "CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o.d"
   "/home/aukun/Project-AI/yolo11/src/yolo11/yolo11_zero_copy.cc" "CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o" "gcc" "CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o.d"
   )

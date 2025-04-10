@@ -18,9 +18,12 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/include/opencv4
     ${PROJECT_SOURCE_DIR}/include/rga
     ${PROJECT_SOURCE_DIR}/include/rknpu
+    ${PROJECT_SOURCE_DIR}/include/rtsp
     ${PROJECT_SOURCE_DIR}/include/timer
     ${PROJECT_SOURCE_DIR}/include/yolo11
+    ${PROJECT_SOURCE_DIR}/include/resnet
     ${PROJECT_SOURCE_DIR}/utils
+    ${PROJECT_SOURCE_DIR}/http
 )
 
 # 设置库文件路径
@@ -29,7 +32,7 @@ set(RGA_LIB ${PROJECT_SOURCE_DIR}/lib/rknpu/librga.so)
 set(RKNN_API_LIB ${PROJECT_SOURCE_DIR}/lib/rknpu/librknn_api.so)
 # 自动获取 lib 目录下的所有 .so 文件
 file(GLOB_RECURSE OpenCV_LIBS ${PROJECT_SOURCE_DIR}/lib/opencv/*.so)
-set(LIBRARY_PATH ${PROJECT_SOURCE_DIR}/lib/utils)
+set(LIBRARY_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 
 # 添加utils子项目
@@ -39,6 +42,8 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/utils/ utils.out)
 file(GLOB YOLO11_SRC 
     src/yolo11/*.cc
     src/BYTETracker/*.cc
+    src/http/*.cc
+    src/resnet/*.cc
 )
 
 # 编译可执行文件
@@ -55,10 +60,11 @@ target_link_libraries(yolo11
     ${RKNN_API_LIB}
 
     -lpthread   # 线程支持
-    ${LIBRARY_PATH}/libaudioutils.a
-    ${LIBRARY_PATH}/libfileutils.a
-    ${LIBRARY_PATH}/libimagedrawing.a
-    ${LIBRARY_PATH}/libimageutils.a
+    ${LIBRARY_PATH}/utils/libaudioutils.a
+    ${LIBRARY_PATH}/utils/libfileutils.a
+    ${LIBRARY_PATH}/utils/libimagedrawing.a
+    ${LIBRARY_PATH}/utils/libimageutils.a
+    ${LIBRARY_PATH}/utils/libimageutils.a
 )
 
 # 设置链接目录

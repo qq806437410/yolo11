@@ -526,5 +526,117 @@ CMakeFiles/yolo11.dir/main.cc.o: /home/aukun/Project-AI/yolo11/main.cc \
  /home/aukun/Project-AI/yolo11/include/yolo11/postprocess.h \
  /home/aukun/Project-AI/yolo11/utils/image_utils.h \
  /home/aukun/Project-AI/yolo11/utils/common.h \
+ /home/aukun/Project-AI/yolo11/include/resnet/resnet.h \
+ /usr/include/c++/11/fstream \
+ /usr/include/aarch64-linux-gnu/c++/11/bits/basic_file.h \
+ /usr/include/aarch64-linux-gnu/c++/11/bits/c++io.h \
+ /usr/include/c++/11/bits/fstream.tcc \
  /home/aukun/Project-AI/yolo11/utils/file_utils.h \
- /home/aukun/Project-AI/yolo11/utils/image_drawing.h
+ /home/aukun/Project-AI/yolo11/utils/image_drawing.h \
+ /home/aukun/Project-AI/yolo11/include/http/http_client.h \
+ /home/aukun/Project-AI/yolo11/include/http/httplib.h \
+ /usr/include/arpa/inet.h /usr/include/netinet/in.h \
+ /usr/include/aarch64-linux-gnu/sys/socket.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_iovec.h \
+ /usr/include/aarch64-linux-gnu/bits/socket.h \
+ /usr/include/aarch64-linux-gnu/bits/socket_type.h \
+ /usr/include/aarch64-linux-gnu/bits/sockaddr.h \
+ /usr/include/aarch64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h /usr/include/linux/posix_types.h \
+ /usr/include/linux/stddef.h \
+ /usr/include/aarch64-linux-gnu/asm/posix_types.h \
+ /usr/include/asm-generic/posix_types.h \
+ /usr/include/aarch64-linux-gnu/asm/bitsperlong.h \
+ /usr/include/asm-generic/bitsperlong.h \
+ /usr/include/aarch64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_osockaddr.h \
+ /usr/include/aarch64-linux-gnu/bits/in.h /usr/include/ifaddrs.h \
+ /usr/include/netdb.h /usr/include/rpc/netdb.h \
+ /usr/include/aarch64-linux-gnu/bits/types/sigevent_t.h \
+ /usr/include/aarch64-linux-gnu/bits/types/__sigval_t.h \
+ /usr/include/aarch64-linux-gnu/bits/netdb.h /usr/include/resolv.h \
+ /usr/include/aarch64-linux-gnu/sys/param.h /usr/include/signal.h \
+ /usr/include/aarch64-linux-gnu/bits/signum-generic.h \
+ /usr/include/aarch64-linux-gnu/bits/signum-arch.h \
+ /usr/include/aarch64-linux-gnu/bits/types/sig_atomic_t.h \
+ /usr/include/aarch64-linux-gnu/bits/types/siginfo_t.h \
+ /usr/include/aarch64-linux-gnu/bits/siginfo-arch.h \
+ /usr/include/aarch64-linux-gnu/bits/siginfo-consts.h \
+ /usr/include/aarch64-linux-gnu/bits/siginfo-consts-arch.h \
+ /usr/include/aarch64-linux-gnu/bits/types/sigval_t.h \
+ /usr/include/aarch64-linux-gnu/bits/sigevent-consts.h \
+ /usr/include/aarch64-linux-gnu/bits/sigaction.h \
+ /usr/include/aarch64-linux-gnu/bits/sigcontext.h \
+ /usr/include/aarch64-linux-gnu/asm/sigcontext.h \
+ /usr/include/linux/types.h /usr/include/aarch64-linux-gnu/asm/types.h \
+ /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
+ /usr/include/aarch64-linux-gnu/asm/sve_context.h \
+ /usr/include/aarch64-linux-gnu/bits/types/stack_t.h \
+ /usr/include/aarch64-linux-gnu/sys/ucontext.h \
+ /usr/include/aarch64-linux-gnu/sys/procfs.h \
+ /usr/include/aarch64-linux-gnu/sys/time.h \
+ /usr/include/aarch64-linux-gnu/sys/user.h \
+ /usr/include/aarch64-linux-gnu/bits/procfs.h \
+ /usr/include/aarch64-linux-gnu/bits/procfs-id.h \
+ /usr/include/aarch64-linux-gnu/bits/procfs-prregset.h \
+ /usr/include/aarch64-linux-gnu/bits/procfs-extra.h \
+ /usr/include/aarch64-linux-gnu/bits/sigstack.h \
+ /usr/include/aarch64-linux-gnu/bits/sigstksz.h /usr/include/unistd.h \
+ /usr/include/aarch64-linux-gnu/bits/posix_opt.h \
+ /usr/include/aarch64-linux-gnu/bits/environments.h \
+ /usr/include/aarch64-linux-gnu/bits/confname.h \
+ /usr/include/aarch64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/aarch64-linux-gnu/bits/getopt_core.h \
+ /usr/include/aarch64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h \
+ /usr/include/aarch64-linux-gnu/bits/ss_flags.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_sigstack.h \
+ /usr/include/aarch64-linux-gnu/bits/sigthread.h \
+ /usr/include/aarch64-linux-gnu/bits/signal_ext.h \
+ /usr/include/aarch64-linux-gnu/bits/param.h /usr/include/linux/param.h \
+ /usr/include/aarch64-linux-gnu/asm/param.h \
+ /usr/include/asm-generic/param.h /usr/include/arpa/nameser.h \
+ /usr/include/arpa/nameser_compat.h \
+ /usr/include/aarch64-linux-gnu/bits/types/res_state.h \
+ /usr/include/netinet/tcp.h /usr/include/c++/11/csignal \
+ /usr/include/c++/11/atomic /usr/include/fcntl.h \
+ /usr/include/aarch64-linux-gnu/bits/fcntl.h \
+ /usr/include/aarch64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/linux/falloc.h /usr/include/aarch64-linux-gnu/bits/stat.h \
+ /usr/include/aarch64-linux-gnu/bits/struct_stat.h \
+ /usr/include/c++/11/random /usr/include/c++/11/bits/random.h \
+ /usr/include/aarch64-linux-gnu/c++/11/bits/opt_random.h \
+ /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
+ /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/regex \
+ /usr/include/c++/11/bitset /usr/include/c++/11/iterator \
+ /usr/include/c++/11/bits/stream_iterator.h /usr/include/c++/11/stack \
+ /usr/include/c++/11/bits/stl_stack.h \
+ /usr/include/c++/11/bits/regex_constants.h \
+ /usr/include/c++/11/bits/regex_error.h \
+ /usr/include/c++/11/bits/regex_automaton.h \
+ /usr/include/c++/11/bits/regex_automaton.tcc \
+ /usr/include/c++/11/bits/regex_scanner.h \
+ /usr/include/c++/11/bits/regex_scanner.tcc \
+ /usr/include/c++/11/bits/regex_compiler.h \
+ /usr/include/c++/11/bits/regex_compiler.tcc \
+ /usr/include/c++/11/bits/regex.h /usr/include/c++/11/bits/regex.tcc \
+ /usr/include/c++/11/bits/regex_executor.h \
+ /usr/include/c++/11/bits/regex_executor.tcc \
+ /usr/include/aarch64-linux-gnu/sys/stat.h \
+ /usr/include/aarch64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
+ /usr/include/aarch64-linux-gnu/bits/statx-generic.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_statx_timestamp.h \
+ /usr/include/aarch64-linux-gnu/bits/types/struct_statx.h \
+ /usr/include/json.hpp /usr/include/c++/11/forward_list \
+ /usr/include/c++/11/bits/forward_list.h \
+ /usr/include/c++/11/bits/forward_list.tcc /usr/include/c++/11/valarray \
+ /usr/include/c++/11/bits/valarray_array.h \
+ /usr/include/c++/11/bits/valarray_array.tcc \
+ /usr/include/c++/11/bits/valarray_before.h \
+ /usr/include/c++/11/bits/slice_array.h \
+ /usr/include/c++/11/bits/valarray_after.h \
+ /usr/include/c++/11/bits/gslice.h \
+ /usr/include/c++/11/bits/gslice_array.h \
+ /usr/include/c++/11/bits/mask_array.h \
+ /usr/include/c++/11/bits/indirect_array.h

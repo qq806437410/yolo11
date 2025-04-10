@@ -325,6 +325,54 @@ src/BYTETracker/utils.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/yolo11.dir/build.make CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.s
 .PHONY : src/BYTETracker/utils.cc.s
 
+src/http/http_client.o: src/http/http_client.cc.o
+.PHONY : src/http/http_client.o
+
+# target to build an object file
+src/http/http_client.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yolo11.dir/build.make CMakeFiles/yolo11.dir/src/http/http_client.cc.o
+.PHONY : src/http/http_client.cc.o
+
+src/http/http_client.i: src/http/http_client.cc.i
+.PHONY : src/http/http_client.i
+
+# target to preprocess a source file
+src/http/http_client.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yolo11.dir/build.make CMakeFiles/yolo11.dir/src/http/http_client.cc.i
+.PHONY : src/http/http_client.cc.i
+
+src/http/http_client.s: src/http/http_client.cc.s
+.PHONY : src/http/http_client.s
+
+# target to generate assembly for a file
+src/http/http_client.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yolo11.dir/build.make CMakeFiles/yolo11.dir/src/http/http_client.cc.s
+.PHONY : src/http/http_client.cc.s
+
+src/resnet/resnet.o: src/resnet/resnet.cc.o
+.PHONY : src/resnet/resnet.o
+
+# target to build an object file
+src/resnet/resnet.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yolo11.dir/build.make CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o
+.PHONY : src/resnet/resnet.cc.o
+
+src/resnet/resnet.i: src/resnet/resnet.cc.i
+.PHONY : src/resnet/resnet.i
+
+# target to preprocess a source file
+src/resnet/resnet.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yolo11.dir/build.make CMakeFiles/yolo11.dir/src/resnet/resnet.cc.i
+.PHONY : src/resnet/resnet.cc.i
+
+src/resnet/resnet.s: src/resnet/resnet.cc.s
+.PHONY : src/resnet/resnet.s
+
+# target to generate assembly for a file
+src/resnet/resnet.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/yolo11.dir/build.make CMakeFiles/yolo11.dir/src/resnet/resnet.cc.s
+.PHONY : src/resnet/resnet.cc.s
+
 src/yolo11/postprocess.o: src/yolo11/postprocess.cc.o
 .PHONY : src/yolo11/postprocess.o
 
@@ -404,6 +452,12 @@ help:
 	@echo "... src/BYTETracker/utils.o"
 	@echo "... src/BYTETracker/utils.i"
 	@echo "... src/BYTETracker/utils.s"
+	@echo "... src/http/http_client.o"
+	@echo "... src/http/http_client.i"
+	@echo "... src/http/http_client.s"
+	@echo "... src/resnet/resnet.o"
+	@echo "... src/resnet/resnet.i"
+	@echo "... src/resnet/resnet.s"
 	@echo "... src/yolo11/postprocess.o"
 	@echo "... src/yolo11/postprocess.i"
 	@echo "... src/yolo11/postprocess.s"

@@ -17,24 +17,30 @@
 #include "BYTETracker.h"
 
 #include "yolo11.h"
+#include "resnet.h"
+
 #include "image_utils.h"
 #include "file_utils.h"
 #include "image_drawing.h"
+
 #include "opencv2/opencv.hpp"
 #include <opencv2/videoio.hpp>
 
+#include "http/http_client.h"
+
 #define model_path "../model/yolo11.rknn"
 // 视频路径（本地视频 or RTSP）
-#define video_path1 "../model/video7.mp4"
+// #define video_path1 "../model/8.png"
+#define video_path1 "../model/video.mp4"
 #define video_path2 "../model/video2.mp4"
 #define video_path3 "../model/video3.mp4"
 // #define video_path1 "rtsp://admin:12345678q@192.168.2.223:554/h264/ch1/main/av_stream"
 
-#define OutScaleX 4
-#define OutScaleY 2.25f
+// #define OutScaleX 4
+// #define OutScaleY 2.25f
 
-// #define OutScaleX 3
-// #define OutScaleY 1.6875f
+#define OutScaleX 3
+#define OutScaleY 1.6875f
 
 #define NUM_VIDEO_SOURCES 1
 // 视频数据队列
@@ -43,7 +49,9 @@ std::vector<std::deque<std::tuple<cv::Mat, std::vector<Object>, object_detect_re
 // std::vector<std::deque<std::tuple<cv::Mat, std::vector<Object>, object_detect_result_list>>> postprocess_queues(NUM_VIDEO_SOURCES);
 std::vector<std::deque<cv::Mat>> postprocess_queues(NUM_VIDEO_SOURCES);
 // 互斥锁（每个视频源一个锁，简化管理）
-std::mutex queue_mutex[NUM_VIDEO_SOURCES];
+std::mutex queue_mutex_readerAndInfer[NUM_VIDEO_SOURCES];
+std::mutex queue_mutex_InferAndPost[NUM_VIDEO_SOURCES];
+std::mutex queue_mutex_PostAndWrite[NUM_VIDEO_SOURCES];
 
 // 条件变量
 std::condition_variable queue_cv_readerAndInfer[NUM_VIDEO_SOURCES];
@@ -96,6 +104,9 @@ void video_reader(int video_id)
     int original_height = 1440;
     int original_width = 2560;
     // 目标大小为640x640
+    // int target_width = 640;
+    // int target_height = 640;
+
     int target_width = 640;
     int target_height = 640;
     int new_width;
@@ -162,7 +173,7 @@ void video_reader(int video_id)
         // resized_frame.copyTo(final_frame(cv::Rect(start_x, start_y, new_width, new_height)));
         frame_id++;
         {
-            std::lock_guard<std::mutex> lock(queue_mutex[video_id]);
+            std::lock_guard<std::mutex> lock(queue_mutex_readerAndInfer[video_id]);
             if (frame_queues[video_id].size() >= 1000)
             {
                 frame_queues[video_id].pop_back(); // 删除最旧的帧
@@ -172,17 +183,11 @@ void video_reader(int video_id)
         queue_cv_readerAndInfer[video_id].notify_all();
     }
 
-    stop_processing = true;
+    // stop_processing = true;
 }
 
 void inference(int video_id, rknn_app_context_t &rknn_app_ctx)
 {
-    int ret = init_yolo11_model(model_path, &rknn_app_ctx);
-    if (ret != 0)
-    {
-        std::cerr << "YOLO 初始化失败！" << std::endl;
-        return;
-    }
     int frame_id;
     std::vector<Object> objects;
     cv::Mat frame, resized_frame;
@@ -190,12 +195,19 @@ void inference(int video_id, rknn_app_context_t &rknn_app_ctx)
     image_buffer_t src_image;
     rknn_perf_run perf_info;
 
+    int ret = init_yolo11_model(model_path, &rknn_app_ctx);
+    if (ret != 0)
+    {
+        std::cerr << "YOLO 初始化失败！" << std::endl;
+        return;
+    }
+
     while (!stop_processing)
     {
         auto start_time = std::chrono::high_resolution_clock::now(); // 记录循环开始时间
         // 读取推理队列
         {
-            std::unique_lock<std::mutex> lock(queue_mutex[video_id]);
+            std::unique_lock<std::mutex> lock(queue_mutex_readerAndInfer[video_id]);
             if (!queue_cv_readerAndInfer[video_id].wait_for(lock, std::chrono::milliseconds(0),
                                                             [&]()
                                                             { return !frame_queues[video_id].empty(); }))
@@ -205,7 +217,7 @@ void inference(int video_id, rknn_app_context_t &rknn_app_ctx)
             }
             auto &data = frame_queues[video_id].front();
 
-            lock.unlock(); // 提前释放锁，提高并发性
+            // lock.unlock(); // 提前释放锁，提高并发性
 
             // data.first.copyTo(resized_frame);
             // data.second.copyTo(frame);
@@ -255,7 +267,7 @@ void inference(int video_id, rknn_app_context_t &rknn_app_ctx)
 
         // 存入后处理队列
         {
-            std::lock_guard<std::mutex> lock(queue_mutex[video_id]);
+            std::lock_guard<std::mutex> lock(queue_mutex_InferAndPost[video_id]);
 
             if (inference_queues[video_id].size() >= 1000)
             {
@@ -278,25 +290,38 @@ void inference(int video_id, rknn_app_context_t &rknn_app_ctx)
     release_yolo11_model(&rknn_app_ctx);
 }
 
-void postprocess(int video_id, BYTETracker &tracker)
+void postprocess(int video_id, BYTETracker &tracker, rknn_app_context_t &rknn_app_ctx1)
 {
+    const char *resnet_model_path = "/home/aukun/Project-AI/yolo11/model/person_attribute_model.rknn";
     cv::Mat frame;
+    cv::Mat person_roi;
     static int i = 0;
     // 在循环外部定义变量
     int frame_count = 0;
     double time_prev = (double)cv::getTickCount();
-    std::string filename = "/home/aukun/Project-AI/AI-ENV/rknn_model_zoo-main/examples/yolo11/model/output_video_0.avi";
-    // cv::VideoWriter out(filename, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 25, cv::Size(2560, 1440));
+    int topK = 1;
+    resnet_result out_result[2];
+    resnet_parse_result parse_result;
 
     std::vector<STrack> output_stracks;
     std::vector<Object> objects;
     object_detect_result_list od_results;
+    // resnet_result out_result;
+    image_buffer_t src_image;
+    rknn_perf_run perf_info;
+
+    int ret = init_resnet_model(resnet_model_path, &rknn_app_ctx1);
+    if (ret != 0)
+    {
+        std::cerr << "RESNET 初始化失败！" << std::endl;
+        return;
+    }
 
     while (!stop_processing)
     {
         std::tuple<cv::Mat, std::vector<Object>, object_detect_result_list> data;
         {
-            std::unique_lock<std::mutex> lock(queue_mutex[video_id]);
+            std::unique_lock<std::mutex> lock(queue_mutex_InferAndPost[video_id]);
             queue_cv_InferAndPost[video_id].wait(lock, [video_id]
                                                  { return !inference_queues[video_id].empty() || stop_processing; });
 
@@ -319,7 +344,7 @@ void postprocess(int video_id, BYTETracker &tracker)
         }
 
         // 目标跟踪
-        output_stracks = tracker.update(objects);
+        // output_stracks = tracker.update(objects);
 
         //  objects 是目标检测后的对象集合
         for (size_t i = 0; i < od_results.count; ++i)
@@ -338,42 +363,75 @@ void postprocess(int video_id, BYTETracker &tracker)
             // 绘制矩形框
             cv::rectangle(frame, objects[i].rect, randomColor, 2);
 
+            // // 截取人物区域
+            person_roi = frame(cv::Rect(cv::Point(x1, y1), cv::Point(x2, y2)));
+            // cv::moveWindow("Video", 0, 0);
+            // cv::imshow("Video", person_roi); // 显示
+            // cv::resize(person_roi, person_roi, cv::Size(224, 224));
+            mat_to_image_buffer(person_roi, &src_image);
+            ret = inference_resnet_model(&rknn_app_ctx1, &src_image, out_result, topK);
+
+            // ret = rknn_query(rknn_app_ctx1.rknn_ctx, RKNN_QUERY_PERF_RUN, &perf_info, sizeof(perf_info));
+            // if (ret == RKNN_SUCC)
+            // {
+            //     std::cout << "Processing frame in thread: " << std::this_thread::get_id() << std::endl;
+            //     std::cout << "thread :" << video_id << "Inference time (us): " << perf_info.run_duration << std::endl;
+            // }
+            // else
+            // {
+            //     std::cerr << "Failed to get performance info!" << std::endl;
+            // }
+
+            free(src_image.virt_addr); // 释放分配的内存
+            // // 处理推理结果
+            int ret = process_output(out_result, &parse_result);
+            if (ret != 0)
+            {
+                std::cerr << "处理推理结果失败！" << std::endl;
+                continue;
+            }
             // 显示对应的 ID
-            char text[256];
-            sprintf(text, " %.1f%%", od_results.results->prop * 100);
+            int truncated_value = static_cast<int>(od_results.results[i].prop * 100);
+            std::string text = std::to_string(truncated_value) + "%, " +
+                               parse_result.gender_cls + ", " +
+                               parse_result.age_cls;
+            // cv::moveWindow("Video", 0, 0);
+            // cv::imshow("Video", person_roi); // 显示
+
             cv::putText(frame, text, cv::Point(x1, y1 - 30), cv::FONT_HERSHEY_SIMPLEX, 0.8, randomColor, 2);
+
+            // std::string output_dir = "./saved_frames/";
+            // std::string output_path = output_dir + "roi_" + std::to_string(frame_count) + ".jpg";
+            // cv::imwrite(output_path, person_roi);
+            frame_count++;
+            // std::cout << "Saved frame to: " << output_path << std::endl;
         }
 
         // 绘制跟踪框
-        for (int i = 0; i < output_stracks.size(); i++)
-        {
-            vector<float> tlwh = output_stracks[i].tlwh;
-            tlwh[0] = tlwh[0];
-            tlwh[1] = tlwh[1];
-            tlwh[2] = tlwh[2];
-            tlwh[3] = tlwh[3];
+        // for (int i = 0; i < output_stracks.size(); i++)
+        // {
+        //     vector<float> tlwh = output_stracks[i].tlwh;
+        //     tlwh[0] = tlwh[0];
+        //     tlwh[1] = tlwh[1];
+        //     tlwh[2] = tlwh[2];
+        //     tlwh[3] = tlwh[3];
 
-            bool vertical = tlwh[2] / tlwh[3] > 1.6;
-            if (tlwh[2] * tlwh[3] > 20 && !vertical)
-            {
-                // 绘制跟踪框，并标注Tracker ID
-                putText(frame, format("Tracker ID: %d", output_stracks[i].track_id), Point(tlwh[0] + 10, tlwh[1] - 5),
-                        0, 0.6, Scalar(16, 119, 0), 2, LINE_AA);
-            }
-        }
+        //     bool vertical = tlwh[2] / tlwh[3] > 1.6;
+        //     if (tlwh[2] * tlwh[3] > 20 && !vertical)
+        //     {
+        //         // 绘制跟踪框，并标注Tracker ID
+        //         putText(frame, format("Tracker ID: %d", output_stracks[i].track_id), Point(tlwh[0] + 10, tlwh[1] - 5),
+        //                 0, 0.6, cv::Scalar(16, 119, 0), 2, LINE_AA);
+        //     }
+        // }
 
         // cout << "size" << frame.cols << "x" << frame.rows << endl;
         // 显示结果
         // cv::namedWindow("RTSP Stream", cv::WINDOW_NORMAL);
         // cv::resizeWindow("RTSP Stream", 1920, 1080);
 
-        if (cv::waitKey(30) == 'q')
         {
-            stop_processing = true;
-        }
-
-        {
-            std::lock_guard<std::mutex> lock(queue_mutex[video_id]);
+            std::lock_guard<std::mutex> lock(queue_mutex_PostAndWrite[video_id]);
 
             if (postprocess_queues[video_id].size() >= 1000)
             {
@@ -389,42 +447,49 @@ void postprocess(int video_id, BYTETracker &tracker)
 }
 void video_write_worker()
 {
+    // std::string server_url = "http://123.60.93.120:20001"; // 服务器地址
+    std::string server_url = "http://192.168.2.131:8080"; // 服务器地址
+    HttpClient HttpClient(server_url);
     int video_id = 0;
-    std::string filename = "../model/output_video_0.avi";
-    cv::VideoWriter out(filename, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 50, cv::Size(2560, 1440));
-    // cv::VideoWriter out(filename, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 25, cv::Size(1920, 1080));
 
+    // GStreamer 推送 H.264 RTP 数据到 LIVE555
+    // cv::VideoWriter writer("output.mp4", cv::VideoWriter::fourcc('X', '2', '6', '4'), 30, cv::Size(640, 480), true);
     cv::Mat frame;
     while (!stop_processing)
     {
-
         {
-            // std::cout << "Queue size: " << postprocess_queues[video_id].size() << std::endl;
-            std::unique_lock<std::mutex> lock(queue_mutex[video_id]);
+            std::unique_lock<std::mutex> lock(queue_mutex_PostAndWrite[video_id]);
             if (!queue_cv_PostAndWrite[video_id].wait_for(lock, std::chrono::milliseconds(50),
                                                           [&]()
                                                           { return !postprocess_queues[video_id].empty(); }))
             {
-                // std::cerr << "写队列超时!" << std::endl;
                 continue;
             }
 
             frame = postprocess_queues[video_id].front();
             postprocess_queues[video_id].pop_back();
         }
-        cv::moveWindow("RTSP Stream", 0, 0);
-        cv::imshow("RTSP Stream", frame);
-        waitKey(1);
-        out.write(frame); // 写入视频帧
+        if (frame.empty())
+        {
+            std::cerr << "Error: Empty frame!" << std::endl;
+            continue;
+        }
+        const std::string image_base64 = HttpClient.matToBase64(frame);
+        std::vector<double> features = {0.12, 0.34, 0.56, 0.78, 0.91};
+        HttpClient.sendData(image_base64, features);
+        // writer.write(frame); // 写入视频
+        // cv::moveWindow("Video", 0, 0);
+        cv::imshow("Video", frame); // 显示
+        waitKey(1);                 // 等待1毫秒
     }
 }
 
 int main()
 {
-    // XInitThreads(); // 初始化 X11 的多线程支持
     // 启动每个视频源的线程
     rknn_app_context_t rknn_app_ctx_0, rknn_app_ctx_1, rknn_app_ctx_2;
-    BYTETracker tracker_0(20, 30), tracker_1(20, 30), tracker_2(20, 30);
+    // BYTETracker tracker_0(20, 30), tracker_1(20, 30), tracker_2(20, 30);
+    BYTETracker tracker_0(20, 30);
 
     std::thread thread_0_video_reader(video_reader, 0);
 
@@ -432,7 +497,7 @@ int main()
     // std::thread thread_0_inference_1(inference, 0, std::ref(rknn_app_ctx_1));
     // std::thread thread_0_inference_2(inference, 0, std::ref(rknn_app_ctx_2));
 
-    std::thread thread_0_postprocess(postprocess, 0, std::ref(tracker_0));
+    std::thread thread_0_postprocess(postprocess, 0, std::ref(tracker_0), std::ref(rknn_app_ctx_1));
     std::thread thread_0_postprocess_writer(video_write_worker);
 
     // 等待所有线程完成
@@ -445,6 +510,5 @@ int main()
     thread_0_postprocess.join();
 
     thread_0_postprocess_writer.join();
-
     return 0;
 }

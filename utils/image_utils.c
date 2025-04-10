@@ -521,7 +521,7 @@ static int convert_image_cpu(image_buffer_t *src, image_buffer_t *dst, image_rec
         printf("convert_image_cpu fail %d\n", reti);
         return -1;
     }
-    printf("finish\n");
+    // printf("finish\n");
     return 0;
 }
 
@@ -740,9 +740,9 @@ static int convert_image_rga(image_buffer_t *src_img, image_buffer_t *dst_img, i
         p_imcolor[1] = color;
         p_imcolor[2] = color;
         p_imcolor[3] = color;
-        printf("fill dst image (x y w h)=(%d %d %d %d) with color=0x%x\n",
-               dst_whole_rect.x, dst_whole_rect.y, dst_whole_rect.width, dst_whole_rect.height, imcolor);
-        ret_rga = imfill(rga_buf_dst, dst_whole_rect, imcolor);
+        // printf("fill dst image (x y w h)=(%d %d %d %d) with color=0x%x\n",
+        //        dst_whole_rect.x, dst_whole_rect.y, dst_whole_rect.width, dst_whole_rect.height, imcolor);
+        // ret_rga = imfill(rga_buf_dst, dst_whole_rect, imcolor);
         if (ret_rga <= 0)
         {
             if (dst != NULL)
@@ -805,7 +805,7 @@ int convert_image(image_buffer_t *src_img, image_buffer_t *dst_img, image_rect_t
     }
     else
     {
-        printf("src width is not 4/16-aligned, convert image use cpu\n");
+        // printf("src width is not 4/16-aligned, convert image use cpu\n");
         ret = convert_image_cpu(src_img, dst_img, src_box, dst_box, color);
     }
 #endif

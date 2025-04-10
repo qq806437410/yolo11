@@ -153,10 +153,38 @@ CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.s"
 	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aukun/Project-AI/yolo11/src/BYTETracker/utils.cc -o CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.s
 
+CMakeFiles/yolo11.dir/src/http/http_client.cc.o: CMakeFiles/yolo11.dir/flags.make
+CMakeFiles/yolo11.dir/src/http/http_client.cc.o: ../src/http/http_client.cc
+CMakeFiles/yolo11.dir/src/http/http_client.cc.o: CMakeFiles/yolo11.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/yolo11.dir/src/http/http_client.cc.o"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/yolo11.dir/src/http/http_client.cc.o -MF CMakeFiles/yolo11.dir/src/http/http_client.cc.o.d -o CMakeFiles/yolo11.dir/src/http/http_client.cc.o -c /home/aukun/Project-AI/yolo11/src/http/http_client.cc
+
+CMakeFiles/yolo11.dir/src/http/http_client.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/yolo11.dir/src/http/http_client.cc.i"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aukun/Project-AI/yolo11/src/http/http_client.cc > CMakeFiles/yolo11.dir/src/http/http_client.cc.i
+
+CMakeFiles/yolo11.dir/src/http/http_client.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/yolo11.dir/src/http/http_client.cc.s"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aukun/Project-AI/yolo11/src/http/http_client.cc -o CMakeFiles/yolo11.dir/src/http/http_client.cc.s
+
+CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o: CMakeFiles/yolo11.dir/flags.make
+CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o: ../src/resnet/resnet.cc
+CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o: CMakeFiles/yolo11.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o -MF CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o.d -o CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o -c /home/aukun/Project-AI/yolo11/src/resnet/resnet.cc
+
+CMakeFiles/yolo11.dir/src/resnet/resnet.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/yolo11.dir/src/resnet/resnet.cc.i"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aukun/Project-AI/yolo11/src/resnet/resnet.cc > CMakeFiles/yolo11.dir/src/resnet/resnet.cc.i
+
+CMakeFiles/yolo11.dir/src/resnet/resnet.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/yolo11.dir/src/resnet/resnet.cc.s"
+	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aukun/Project-AI/yolo11/src/resnet/resnet.cc -o CMakeFiles/yolo11.dir/src/resnet/resnet.cc.s
+
 CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o: CMakeFiles/yolo11.dir/flags.make
 CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o: ../src/yolo11/postprocess.cc
 CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o: CMakeFiles/yolo11.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o"
 	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o -MF CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o.d -o CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o -c /home/aukun/Project-AI/yolo11/src/yolo11/postprocess.cc
 
 CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.i: cmake_force
@@ -170,7 +198,7 @@ CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.s: cmake_force
 CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o: CMakeFiles/yolo11.dir/flags.make
 CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o: ../src/yolo11/yolo11_zero_copy.cc
 CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o: CMakeFiles/yolo11.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o"
 	/usr/bin/aarch64-linux-gnu-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o -MF CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o.d -o CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o -c /home/aukun/Project-AI/yolo11/src/yolo11/yolo11_zero_copy.cc
 
 CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.i: cmake_force
@@ -189,6 +217,8 @@ yolo11_OBJECTS = \
 "CMakeFiles/yolo11.dir/src/BYTETracker/kalmanFilter.cc.o" \
 "CMakeFiles/yolo11.dir/src/BYTETracker/lapjv.cc.o" \
 "CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.o" \
+"CMakeFiles/yolo11.dir/src/http/http_client.cc.o" \
+"CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o" \
 "CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o" \
 "CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o"
 
@@ -201,6 +231,8 @@ yolo11: CMakeFiles/yolo11.dir/src/BYTETracker/STrack.cc.o
 yolo11: CMakeFiles/yolo11.dir/src/BYTETracker/kalmanFilter.cc.o
 yolo11: CMakeFiles/yolo11.dir/src/BYTETracker/lapjv.cc.o
 yolo11: CMakeFiles/yolo11.dir/src/BYTETracker/utils.cc.o
+yolo11: CMakeFiles/yolo11.dir/src/http/http_client.cc.o
+yolo11: CMakeFiles/yolo11.dir/src/resnet/resnet.cc.o
 yolo11: CMakeFiles/yolo11.dir/src/yolo11/postprocess.cc.o
 yolo11: CMakeFiles/yolo11.dir/src/yolo11/yolo11_zero_copy.cc.o
 yolo11: CMakeFiles/yolo11.dir/build.make
@@ -228,8 +260,9 @@ yolo11: ../lib/utils/libaudioutils.a
 yolo11: ../lib/utils/libfileutils.a
 yolo11: ../lib/utils/libimagedrawing.a
 yolo11: ../lib/utils/libimageutils.a
+yolo11: ../lib/utils/libimageutils.a
 yolo11: CMakeFiles/yolo11.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable yolo11"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aukun/Project-AI/yolo11/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable yolo11"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/yolo11.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
